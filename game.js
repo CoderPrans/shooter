@@ -1,4 +1,13 @@
-let {canvas, context} = kontra.init();
+let gameState = {
+  over: function() {
+    let dialog = document.querySelector('.dialog');
+    let msg = document.querySelector('.msg');
+    dialog.style.display = 'block';
+    msg.innerHTML = 'Game Over !';
+  },
+};
+
+let {canvas} = kontra.init();
 
 let xunits = window.innerWidth > 500 ? 500 : window.innerWidth - 20;
 let yunits = window.innerHeight - 20;
@@ -12,15 +21,24 @@ let loop = kontra.GameLoop({
   update() {
     sprites.map(sprite => {
       sprite.update();
+      // sprite is beyond left edge
       if (sprite.x < -sprite.radius) {
         sprite.x = canvas.width + sprite.radius;
-      } else if (sprite.x > canvas.width + sprite.radius) {
+      }
+      // sprite is beyond right edge
+      else if (sprite.x > canvas.width + sprite.radius) {
         sprite.x = 0 - sprite.radius;
       }
+      // sprite is beyond top edge
       if (sprite.y < -sprite.radius) {
         sprite.y = canvas.height + sprite.radius;
-      } else if (sprite.y > canvas.height + sprite.radius) {
+      }
+      // sprite is beyond bottom edge
+      else if (sprite.y > canvas.height + sprite.radius) {
         sprite.y = -sprite.radius;
+        if (sprite.type === 'alien') {
+          gameState.over();
+        }
       }
     });
 
@@ -41,6 +59,10 @@ let loop = kontra.GameLoop({
 
               if (alien.radius > pad / 8) {
                 createAlien(alien.x, alien.y, alien.radius / 2);
+              }
+
+              if (sprite.type === 'ship') {
+                gameState.over();
               }
               break;
             }

@@ -2,6 +2,7 @@
 kontra.initKeys();
 
 let ship = kontra.Sprite({
+  type: 'ship',
   x: xunits / 2 - 15,
   y: yunits - 20,
   radius: 22,

@@ -13,9 +13,47 @@
         margin: 0 auto;
         display: block;
       }
+      .dialog {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -100px;
+        margin-left: -150px;
+        background: black;
+        width: 300px;
+        height: 200px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+      }
+      .msg {
+        color: #ddd;
+        text-align: center;
+        margin-top: 50px;
+      }
+      .dialog button {
+        background: black;
+        border: 1px solid #ddd;
+        color: white;
+        padding: 0.5em 1em;
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 0 auto;
+        margin-top: 35px;
+        display: block;
+      }
+      .dialog h2 {
+        font-weight: normal;
+      }
     </style>
   </head>
   <body>
+    <div class="container">
+      <div class="dialog">
+        <h2 class="msg"></h2>
+        <button onclick="location.reload()">Restart</button>
+      </div>
+    </div>
     <canvas></canvas>
     <script src="https://cdn.jsdelivr.net/npm/kontra@7.1.2/kontra.min.js"></script>
     <script src="game.js"></script>
