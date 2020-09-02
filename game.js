@@ -121,7 +121,7 @@ function createAlien(x, y, radius) {
     render() {
       this.context.fillStyle = 'purple';
       this.context.beginPath();
-      this.context.arc(0, 0, this.radius, 0, Math.PI * 2);
+      this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
       this.context.fill();
     },
   });
@@ -160,9 +160,9 @@ let ship = kontra.Sprite({
   render() {
     this.context.strokeStyle = 'white';
     this.context.beginPath();
-    this.context.moveTo(0, 0);
-    this.context.lineTo(15, -22);
-    this.context.lineTo(30, 0);
+    this.context.moveTo(this.x, this.y);
+    this.context.lineTo(this.x + 15, this.y - 22);
+    this.context.lineTo(this.x + 30, this.y);
     this.context.closePath();
     this.context.stroke();
   },
@@ -204,7 +204,7 @@ function createStar() {
     render() {
       this.context.strokeStyle = 'white';
       this.context.beginPath();
-      this.context.arc(0, 0, this.radius, 0, Math.PI * 2);
+      this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
       this.context.stroke();
     },
   });
