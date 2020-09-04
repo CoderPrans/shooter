@@ -1,5 +1,5 @@
 {
-  "name": "Space Shooter",
+  "name": "Space_Shooter",
   "version": "1.0.0",
   "description": "a simple space shooter for js13kgame 2020",
   "main": "js/game.js",
@@ -9,7 +9,10 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d public"
   },
-  "keywords": ["shooter", "js13kgames"],
+  "keywords": [
+    "shooter",
+    "js13kgames"
+  ],
   "author": "Pranav Bhaskar",
   "license": "ISC",
   "dependencies": {
