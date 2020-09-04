@@ -5,12 +5,15 @@
   "main": "js/game.js",
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w"
+    "dev": "rollup -c -w",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d public"
   },
   "keywords": ["shooter", "js13kgames"],
   "author": "Pranav Bhaskar",
   "license": "ISC",
   "dependencies": {
+    "gh-pages": "^3.1.0",
     "rollup": "^2.26.10",
     "rollup-plugin-terser": "^7.0.1"
   }
